@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="dashboardContent" spacing="20" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartlibrarymanager.DashboardController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      
+      <!-- Welcome Section -->
+      <HBox alignment="CENTER_LEFT" styleClass="vbox-bordered">
+         <children>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="welcomeLabel" style="-fx-font-weight: bold; -fx-font-size: 20;" styleClass="h2" text="Welcome, User!">
+         </Label>
+                  <Label style="-fx-font-size: 14;" styleClass="subtle" text="Share Library Management Disciplines">
+         </Label>
+               </children>
+            </VBox>
+            <Button fx:id="signOutButton" text="Sign Out">
+      </Button>
+         </children>
+      </HBox>
+      
+      <!-- Statistics Section -->
+      <Label style="-fx-font-weight: bold; -fx-font-size: 18;" styleClass="h2" text="Library Statistics">
+   </Label>
+      <Label style="-fx-font-size: 14;" styleClass="subtle" text="Current status of your Library system">
+   </Label>
+      
+      <HBox alignment="CENTER" spacing="15" styleClass="vbox-bordered">
+         <children>
+            <VBox fx:id="totalBooksBox" alignment="CENTER" prefWidth="160" spacing="5" styleClass="stat-box">
+               <children>
+                  <Label fx:id="totalBooksLabel" styleClass="kpi" text="0">
+         </Label>
+                  <Label style=" -fx-font-size: 14;" text="Total Books">
+         </Label>
+               </children>
+            </VBox>
+            
+            <VBox fx:id="availableBooksBox" alignment="CENTER" prefWidth="160" spacing="5" styleClass="stat-box">
+               <children>
+                  <Label fx:id="availableBooksLabel" styleClass="kpi" text="0">
+         </Label>
+                  <Label style="-fx-font-size: 14;" text="Available">
+         </Label>
+               </children>
+            </VBox>
+            
+            <VBox fx:id="membersBox" alignment="CENTER" prefWidth="160" spacing="5" styleClass="stat-box">
+               <children>
+                  <Label fx:id="membersLabel" styleClass="kpi" text="0">
+         </Label>
+                  <Label style="-fx-font-size: 14;" text="Members">
+         </Label>
+               </children>
+            </VBox>
+            
+            <VBox fx:id="borrowingsBox" alignment="CENTER" prefWidth="160" spacing="5" styleClass="stat-box">
+               <children>
+                  <Label fx:id="borrowingsLabel" styleClass="kpi" text="0">
+         </Label>
+                  <Label style="-fx-font-size: 14;" text="Borrowings">
+         </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      
+      <!-- Quick Actions Section -->
+      <Label style="-fx-font-weight: bold; -fx-font-size: 18;" styleClass="h2" text="Quick Actions">
+   </Label>
+      <Label style="-fx-font-size: 14;" styleClass="subtle" text="Access with Library Assignment functions">
+   </Label>
+      
+      <HBox alignment="CENTER" spacing="15">
+         <children>
+            <VBox prefWidth="250" spacing="10" style="-fx-background-radius: 5;-fx-border-radius: 5; -fx-padding: 15;" styleClass="card">
+               <children>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 16;" styleClass="h2" text="Manage Books">
+         </Label>
+                  <Label style="-fx-font-size: 14;" styleClass="subtle" text="Add, edit, and organize your book inventory" wrapText="true">
+         </Label>
+                  <Button fx:id="goToBooksButton" maxWidth="1.7976931348623157E308" text="Go to Books">
+         </Button>
+               </children>
+            </VBox>
+            
+            <VBox prefWidth="250" spacing="10" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 15;" styleClass="card">
+               <children>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 16;" styleClass="h2" text="Manage Readers">
+         </Label>
+                  <Label style="-fx-font-size: 14;" styleClass="subtle" text="Register and manage Library members" wrapText="true">
+         </Label>
+                  <Button fx:id="goToReadersButton" maxWidth="1.7976931348623157E308" text="Go to Readers">
+         </Button>
+               </children>
+            </VBox>
+            
+            <VBox prefWidth="250" spacing="10" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 15;" styleClass="card">
+               <children>
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 16;" styleClass="h2" text="Manage Borrowing">
+         </Label>
+                  <Label style="-fx-font-size: 14;" styleClass="subtle" text="Trace book borrowings and reviews" wrapText="true">
+         </Label>
+                  <Button fx:id="goToBorrowingButton" maxWidth="1.7976931348623157E308" text="Go to Borrowing">
+         </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      
+      <!-- Footer -->
+      <Label style="-fx-font-size: 12;" styleClass="subtle" text="Source: Library Manager — Professional System">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </Label>
+   </children>
+</VBox>

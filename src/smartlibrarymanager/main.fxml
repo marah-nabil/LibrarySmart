@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="rootLayout" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartlibrarymanager.MainController">
+   
+   <!-- Top Menu Bar -->
+   <top>
+      <MenuBar>
+         <Menu text="File">
+            <MenuItem text="Exit" onAction="#handleExit" />
+         </Menu>
+         <Menu text="Navigation">
+            <MenuItem text="Dashboard" onAction="#showDashboard" />
+            <MenuItem text="Books Management" onAction="#showBooksManagement" />
+            <MenuItem text="Members Management" onAction="#showMembersManagement" />
+            <MenuItem text="Borrowing Management" onAction="#showBorrowingManagement" />
+            <SeparatorMenuItem />
+            <MenuItem text="Sign Out" onAction="#handleSignOut" />
+         </Menu>
+         <Menu text="Help">
+            <MenuItem text="About" onAction="#handleAbout" />
+         </Menu>
+      </MenuBar>
+   </top>
+   
+   <!-- Center Content Area -->
+   <center>
+      <ScrollPane fx:id="contentScrollPane" fitToWidth="true">
+         <content>
+            <!-- Content will be loaded dynamically here -->
+         </content>
+      </ScrollPane>
+   </center>
+   
+   <!-- Bottom Status Bar -->
+   <bottom>
+      <HBox >
+         <children>
+            <Label fx:id="statusLabel" text="Ready" />
+            <HBox HBox.hgrow="ALWAYS" />
+            <Label fx:id="userLabel" text="Not signed in" />
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   
+</BorderPane>

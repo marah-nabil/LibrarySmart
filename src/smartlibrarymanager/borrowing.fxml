@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="borrowingPane" spacing="15" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartlibrarymanager.BorrowingController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      
+      <!-- Header Section -->
+      <VBox spacing="5" styleClass="vbox-bordered">
+         <children>
+            <Label style="-fx-font-weight: bold; -fx-font-size: 24;" styleClass="h2" text="Borrowing Management">
+      </Label>
+            <Label style="-fx-font-size: 16;" styleClass="subtle" text="Manage book borrowing transactions">
+      </Label>
+         </children>
+      </VBox>
+      
+      <!-- Borrow a Book Section -->
+      <VBox spacing="10" style="-fx-padding: 15;-fx-border-radius: 5;" styleClass="vbox-bordered">
+         <children>
+            <Label style=" -fx-font-weight: bold; -fx-font-size: 18;" styleClass="h2" text="Borrow a Book">
+      </Label>
+            <Label style="-fx-font-size: 14;" styleClass="subtle" text="Record a new borrowing transaction">
+      </Label>
+            
+            <GridPane hgap="10" vgap="10">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+               </columnConstraints>
+               <children>
+                  
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="h2" text="Select Book" GridPane.columnIndex="0" GridPane.rowIndex="0">
+         </Label>
+                  <ComboBox fx:id="bookCombo" prefHeight="31.0" prefWidth="220.0" promptText="Select a book" GridPane.columnIndex="1" GridPane.rowIndex="0">
+         </ComboBox>
+                  
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="h2" text="Select Member" GridPane.columnIndex="0" GridPane.rowIndex="1">
+         </Label>
+                  <ComboBox fx:id="memberCombo" prefHeight="31.0" prefWidth="220.0" promptText="Select a member" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         </ComboBox>
+                  
+                  <Label style="-fx-font-weight: bold; -fx-font-size: 14;" styleClass="h2" text="Borrow Date" GridPane.columnIndex="0" GridPane.rowIndex="2">
+         </Label>
+                  <DatePicker fx:id="datePicker" prefHeight="31.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         </DatePicker>
+               </children>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+            </GridPane>
+            
+            <Button fx:id="borrowButton" onAction="#handleBorrowBook" text="Borrow Book">
+      </Button>
+         </children>
+      </VBox>
+      
+      <!-- Current Borrowings Section -->
+      <VBox spacing="10" style="-fx-padding: 15;  -fx-border-radius: 5;" styleClass="vbox-bordered">
+         <children>
+            <Label style="-fx-font-weight: bold; -fx-font-size: 18;" styleClass="h2" text="Current Borrowings">
+      </Label>
+            <Label style=" -fx-font-size: 14;" styleClass="subtle" text="View and manage current book borrowings">
+      </Label>
+            
+            <!-- Borrowings Table -->
+            <TableView fx:id="borrowingsTable" prefHeight="300" styleClass="compact">
+               <columns>
+                  <TableColumn fx:id="idCol" prefWidth="50" text="ID">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="bookCol" prefWidth="200" text="Book">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="bookTitle" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="memberCol" prefWidth="200" text="Member">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="memberName" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="borrowDateCol" prefWidth="120" text="Borrow Date">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="borrowDate" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="returnDateCol" prefWidth="120" text="Return Date">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="returnDate" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="actionsCol" prefWidth="150" text="Actions">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="dummy" />
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+            
+            <!-- Total Borrowings Label -->
+            <Label fx:id="totalBorrowingsLabel" style="-fx-font-weight: bold; -fx-font-size: 14;" text="0 Active Borrowings">
+      </Label>
+         </children>
+      </VBox>
+   </children>
+</VBox>
